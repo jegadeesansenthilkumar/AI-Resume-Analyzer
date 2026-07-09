@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Analysis Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Resume Analysis Result</h1>
+
+    <div class="card">
+        <h2>Contact Information</h2>
+
+        <p>
+            <strong>Email:</strong>
+            {{ email }}
+        </p>
+
+        <p>
+            <strong>Phone:</strong>
+            {{ phone }}
+        </p>
+    </div>
+
+
+    <div class="card">
+
+        <h2>Resume Word Count</h2>
+
+        <p>{{ word_count }} words</p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Detected Skills</h2>
+
+        {% if skills %}
+
+        <ul>
+
+            {% for skill in skills %}
+
+            <li>{{ skill }}</li>
+
+            {% endfor %}
+
+        </ul>
+
+        {% else %}
+
+        <p>No skills detected.</p>
+
+        {% endif %}
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Education Details</h2>
+
+        <ul>
+
+            {% for edu in education %}
+
+            <li>{{ edu }}</li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Extracted Resume Text</h2>
+
+        <pre>{{ text }}</pre>
+
+    </div>
+
+
+    <a href="/">Analyze Another Resume</a>
+
+</div>
+
+</body>
+</html>
